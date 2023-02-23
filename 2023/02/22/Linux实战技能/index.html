@@ -14,7 +14,7 @@
 <meta property="og:description" content="万能的帮助命令为什么要学帮助命令 Linux的命令基本操作方式是命令行 海量的命令不适合死记硬背 要升级大脑  man 帮助 man是manual的缩写 man帮助用法演示 man ls   man也是一条命令，分9章，可以使用man命令获得man的帮助 man  7 man    help帮助 shell（命令解释器）自带的命令成为内部命令，其他的是外部命令  内部命令使用help帮助  hel">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-22T12:45:24.000Z">
-<meta property="article:modified_time" content="2023-02-23T00:46:19.523Z">
+<meta property="article:modified_time" content="2023-02-23T01:31:33.862Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -198,12 +198,27 @@
 </ul>
 <h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><ul>
 <li>基本操作<ul>
-<li><code>:w</code>		写入</li>
-<li><code>:q</code>                  退出</li>
-<li><code>:!</code>                  执行<code>Shell</code>命令</li>
-<li><code>:s</code>                  替换</li>
-<li><code>/</code>                    查找</li>
-<li><code>set </code>             设置命令</li>
+<li><p><code>:w</code>		写入</p>
+</li>
+<li><p><code>:q</code>                  退出</p>
+</li>
+<li><p><code>:!</code>                  执行<code>Shell</code>命令</p>
+</li>
+<li><p><code>:s</code>                  替换</p>
+<p><code>:s/old/new </code>                  用新的替换旧的默认是光标所在的那一行的第一个旧的</p>
+<p><code>:%s/old/new</code>                 替换整个文件每一行的第一个旧的那个</p>
+<p><code>:%s/old/new/g</code>            替换整个文件中的旧的</p>
+<p><code>:n1,n2s/old/new/g</code>   替换<code>n1</code>到<code>n2</code>行之间的旧的</p>
+</li>
+<li><p><code>/</code>                    查找</p>
+<p><code>n</code>                                       下一个查找到的元素</p>
+<p><code>Shift + n</code>                     上一个查找到的元素</p>
+</li>
+<li><p><code>set </code>             设置命令</p>
+<p><code>:set nu</code>  显示行号</p>
+<p><code>:set nonu</code> 不显示行号</p>
+<p> 写在配置文件中<code>vimrc</code>去</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -224,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/22/Linux%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD/" data-id="clegdw5re0001mctgerr7av2z" data-title="Linux实战技能100讲" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/22/Linux%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD/" data-id="clegfiked0000rotg3dyie2v8" data-title="Linux实战技能100讲" class="article-share-link">Share</a>
       
       
       
