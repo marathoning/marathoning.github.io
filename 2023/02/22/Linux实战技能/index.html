@@ -14,7 +14,7 @@
 <meta property="og:description" content="Linux基础命令万能的帮助命令为什么要学帮助命令 Linux的命令基本操作方式是命令行 海量的命令不适合死记硬背 要升级大脑  man 帮助 man是manual的缩写 man帮助用法演示 man ls   man也是一条命令，分9章，可以使用man命令获得man的帮助 man  7 man    help帮助 shell（命令解释器）自带的命令成为内部命令，其他的是外部命令  内部命令使用he">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-22T12:45:24.000Z">
-<meta property="article:modified_time" content="2023-02-22T23:47:26.783Z">
+<meta property="article:modified_time" content="2023-02-23T00:21:52.781Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -176,31 +176,28 @@
 <p><code>yy</code>   		单行复制 	</p>
 <p><code>nyy</code> 		多行复制</p>
 <p><code>y + $</code>     从光标位置复制到行尾部</p>
-<p><code>d</code>		剪切</p>
+<p><code>d</code>		<br><code>dd</code>		    剪切光标所在的一整行<br><code>ndd</code> 		多行剪切	</p>
+<p><code>d + $</code>      从光标位置剪切到行尾	</p>
+<p><code>p</code>	  	   粘贴</p>
+<p><code>u</code>             撤销          				</p>
+<p><code>ctrl + r</code> 重做撤销的那步命令</p>
+<p><code>x</code>			  单个字符的删除</p>
+<p><code>r</code>              单个字符的替换</p>
+<p><code>:set nu</code>   显示当前所在行号</p>
+<p><code>n + G</code>      快速的切换到第n行</p>
+<p><code>g</code>              文本的第一行</p>
+<p><code>G</code>              文本的最后一行</p>
+<p><code>^</code>              光标所在行的行首</p>
+<p><code>$</code>              光标所在行的行尾</p>
 </li>
 </ul>
 </li>
 </ul>
-<p>​			  <code>   dd</code>		    剪切光标所在的一整行</p>
-<p>​			  <code>ndd</code> 		多行剪切	</p>
-<p>​			 <code>d + $</code>      从光标位置剪切到行尾	</p>
-<p>​			  <code>    p</code>	  	   粘贴</p>
-<p>​			  <code> u</code>             撤销          				</p>
-<p>​              <code>ctrl + r</code> 重做撤销的那步命令				</p>
-<pre><code>          `x`			  单个字符的删除
-          `r`              单个字符的替换
-</code></pre>
-<p>​			<code>:set nu</code>   显示当前所在行号</p>
-<p>​			 <code>n + G</code>      快速的切换到第n行</p>
-<p>​			 <code>g</code>              文本的第一行</p>
-<p>​             <code>G</code>              文本的最后一行</p>
-<p>​			<code>^</code>              光标所在行的行首</p>
-<p>​			<code>$</code>              光标所在行的行尾</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/22/Linux%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD/" data-id="clegbsuo7000188tg69i27sa7" data-title="Linux实战技能" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/02/22/Linux%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD/" data-id="clegd1c250000r4tgb8rda8ep" data-title="Linux实战技能" class="article-share-link">Share</a>
       
       
       
