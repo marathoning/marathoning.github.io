@@ -233,62 +233,95 @@
 </ul>
 </li>
 </ul>
+<h2 id="用户与权限管理"><a href="#用户与权限管理" class="headerlink" title="用户与权限管理"></a>用户与权限管理</h2><ul>
+<li><p>多用户操作系统的目的是隔离</p>
+<p>​	用户权限隔离</p>
+<p>​    系统资源隔离</p>
+<p>​    <code>root</code>用户与普通用户的区别</p>
+</li>
+</ul>
+<h3 id="多用户操作系统"><a href="#多用户操作系统" class="headerlink" title="多用户操作系统"></a>多用户操作系统</h3><ul>
+<li><p>用户权限隔离</p>
+</li>
+<li><p>系统资源隔离</p>
+</li>
+<li><p><code>root</code>用户与普通用户的区别</p>
+</li>
+</ul>
+<h3 id="用户管理常用命令"><a href="#用户管理常用命令" class="headerlink" title="用户管理常用命令"></a>用户管理常用命令</h3><ul>
+<li><p><code>useradd</code>  新建用户</p>
+</li>
+<li><p><code>userdel</code>  删除用户</p>
+</li>
+<li><p><code>passwd</code>    修改用户密码</p>
+</li>
+<li><p><code>usermod</code>   修改用户属性</p>
+<p><code>usermod -d home_dir username </code>   把用户<code>username</code>家目录换到新的位置</p>
+<p><code>usermod -g  groupname  username</code>     把用户<code>username</code>的用户组修改为<code>groupname</code></p>
+</li>
+<li><p><code>chage</code>  修改用户属性</p>
+</li>
+</ul>
+<h3 id="组管理命令"><a href="#组管理命令" class="headerlink" title="组管理命令"></a>组管理命令</h3><ul>
+<li><p><code>groupadd</code> 新建用户组</p>
+<p><code>groupadd newgroup</code>   创建新的用户组</p>
+<p><code>usermod -g newgroup username</code>把用户<code>username</code>的用户组修改为<code>newgroup</code></p>
+<p><code>useradd -g newgroup username</code> 新建用的时候直接指定了用户组为<code>newgroup</code></p>
+</li>
+<li><p><code>groupdel</code>  删除用户组</p>
+</li>
+</ul>
+<h3 id="用户配置文件"><a href="#用户配置文件" class="headerlink" title="用户配置文件"></a>用户配置文件</h3><p><code>/root</code>	root用户的家目录</p>
+<p><code>/home/USERNAME</code>		普通用户默认家目录位置</p>
+<p><code>/etc/passwd</code>			用户配置文件</p>
+<p><code>/etc/shadow</code>			用户密码相关配置未见</p>
+<p><code>/etc/group</code>			用户组配置文件</p>
+<h3 id="用户切换"><a href="#用户切换" class="headerlink" title="用户切换"></a>用户切换</h3><ul>
+<li><p><code>su</code>  切换用户</p>
+<p><code>su - USERNAME</code>  使用<code>login shell</code>方式切换用户</p>
+</li>
+<li><p><code>sudo</code>  以其他用户身份执行命令</p>
+<p><code>visudo</code>  设置需要使用<code>sudo</code>的用户（组）</p>
+</li>
+</ul>
+<h3 id="文件权限的表示方法"><a href="#文件权限的表示方法" class="headerlink" title="文件权限的表示方法"></a>文件权限的表示方法</h3><ul>
+<li><p>字符权限表示方法</p>
+<p><code>r</code>  读</p>
+<p><code>w</code> 写</p>
+<p><code>x</code> 执行</p>
+</li>
+<li><p>数字权限的表示方法</p>
+<p><code>r = 4</code> </p>
+<p><code>w = 2</code></p>
+<p><code>x = 1</code></p>
+</li>
+<li><p><code>-rw- r-x r-- 1  username groupname mtime filename</code></p>
+<p><code>rw-</code> 文件属主的权限</p>
+<p><code>r-x</code>  文件属组的权限</p>
+<p><code>r--</code>   其他用户的权限</p>
+<p>创建文件有默认权限，根据<code>umask</code>值计算</p>
+</li>
+</ul>
+<h3 id="目录权限的表示方法"><a href="#目录权限的表示方法" class="headerlink" title="目录权限的表示方法"></a>目录权限的表示方法</h3><ul>
+<li><p><code>x</code> 进入目录</p>
+</li>
+<li><p><code>rx</code> 显示目录内的文件名</p>
+</li>
+<li><p><code>wx</code> 修改目录内的文件名</p>
+</li>
+</ul>
+<h3 id="修改权限命令"><a href="#修改权限命令" class="headerlink" title="修改权限命令"></a>修改权限命令</h3><p><code>chmod</code>		修改文件、目录权限</p>
+<p><code>chown</code>		更改属组、属主</p>
+<p><code>chgrp</code>	  可以单独更改属组，不常用</p>
+<p>###特殊权限</p>
+<p><code>SUID</code>		用户二进制可执行文件，执行命令时取得文件属主权限</p>
+<p><code>SGID</code>        用于目录，在该目录下创建新的文件和目录，权限自动更改为该目录的属组</p>
+<p><code>SBIT</code>       用于目录，该目录下新建的文件和目录，仅<code>root</code>和自己可以删除</p>
 
       
     </div>
     <footer class="article-footer">
       <a data-url="http://example.com/2023/02/22/Linux%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD/" data-id="clegfiked0000rotg3dyie2v8" data-title="Linux实战技能100讲" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/02/22/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2023-02-22T09:06:59.117Z" itemprop="datePublished">2023-02-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/02/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/22/hello-world/" data-id="clegfikeh0001rotg80s99a6l" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -332,10 +365,6 @@
         
           <li>
             <a href="/2023/02/22/Linux%E5%AE%9E%E6%88%98%E6%8A%80%E8%83%BD/">Linux实战技能100讲</a>
-          </li>
-        
-          <li>
-            <a href="/2023/02/22/hello-world/">Hello World</a>
           </li>
         
       </ul>
